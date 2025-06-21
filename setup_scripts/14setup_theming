@@ -1,18 +1,18 @@
 #!/bin/bash
 echo "Installing gtk theme"
-sudo apt install -y gnome-themes-extra gtk2-engines-murrine sassc 
-cd && curl -LsSO "https://raw.githubusercontent.com/catppuccin/gtk/v1.0.3/install.py"
-python3 install.py macchiato flamingo
-cd && sudo rm -rf install.py
+sudo apt install gnome-themes-standard gtk2-engines-murrine sassc
+cd && git clone https://github.com/vinceliuice/Colloid-gtk-theme.git
+cd Colloid-gtk-theme 
+./install.sh -c dark -l  --tweaks gruvbox
+cd && sudo rm -rf Colloid-gtk-theme
 
 echo "Installing Icons"
 sudo apt install -y papirus-icon-theme
-cd && git clone https://github.com/catppuccin/papirus-folders.git
-cd papirus-folders
-sudo cp -r src/* /usr/share/icons/Papirus
-curl -LO https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/papirus-folders && chmod +x ./papirus-folders
-./papirus-folders -C cat-macchiato-flamingo --theme Papirus-Dark
-cd && sudo rm -rf papirus-folders
+cd && git clone https://github.com/xelser/gruvbox-papirus-folders 
+cd gruvbox-papirus-folders
+sudo cp -r src/* /usr/share/icons/Papirus/
+sudo ./papirus-folders -C gruvbox-material-organge --theme Papirus-Dark
+cd && sudo rm -rf gruvbox-papirus-folders
 
 echo "Installing Cursors"
 sudo apt install -y bibata-cursor-theme
