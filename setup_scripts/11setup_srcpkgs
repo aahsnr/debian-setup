@@ -1,11 +1,10 @@
 #!/bin/bash
 echo "Installing From Source"
-bash $HOME/.dots/ubuntu-scripts/source_builds/Agsv1 && cd
-# bash $HOME/.dots/ubuntu-scripts/source_builds/Kidex && cd
-# bash $HOME/.dots/ubuntu-scripts/source_builds/Anyrun && cd
+bash $HOME/.dots/ubuntu-scripts/source_builds/Kidex && cd
+bash $HOME/.dots/ubuntu-scripts/source_builds/Anyrun && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Asuslinux && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Emacs && cd
-# bash $HOME/.dots/ubuntu-scripts/source_builds/Emacs-lsp-booster && cd
+bash $HOME/.dots/ubuntu-scripts/source_builds/Emacs-lsp-booster && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Grub-btrfs && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Hyprutils && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Hyprlang && cd
@@ -21,9 +20,8 @@ bash $HOME/.dots/ubuntu-scripts/source_builds/Hyprland && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Hyprland-contrib && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Hyprsunset && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Neovim && cd
-# bash $HOME/.dots/ubuntu-scripts/source_builds/Nwg-drawer && cd
-# bash $HOME/.dots/ubuntu-scripts/source_builds/Nwg-menu && cd
+bash $HOME/.dots/ubuntu-scripts/source_builds/Nwg-drawer && cd
+bash $HOME/.dots/ubuntu-scripts/source_builds/Nwg-menu && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Nwg-hello && cd
 bash $HOME/.dots/ubuntu-scripts/source_builds/Rofi && cd
-# bash $HOME/.dots/ubuntu-scripts/source_builds/Texlab && cd
-#sudo reboot
+bash $HOME/.dots/ubuntu-scripts/source_builds/Texlab && cd
