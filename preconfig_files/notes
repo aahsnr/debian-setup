@@ -1,0 +1,70 @@
+build from source ubuntu
+
+
+Is is possible to build Ubuntu from source to get the same kind of benefit?
+
+I am not sure about the benefits if you have fairly new hardware components but for the "Ubuntu from source" part of the question the answer is YES, you can build not only your favorite applications from source, but the entire operating system.
+
+Here is how:
+
+You need to install apt-build. Its a comandline tool like apt-get, but instead of downloading and installing the binary package, apt-build downloads the source code of the package, compiles it and then installs it to your system.
+
+After you install it with
+
+sudo apt-get install apt-build
+
+you will be asked for an optimization level (medium is ok), whether you want to create an apt-build repo for APT (Yes) and a question about processor architecture (my intel i7 is considered core2 ). Of course all options can be reconfigured in this way:
+
+dpkg-reconfigure apt-build
+
+The above command offers two additional options for the gcc compiler and make builder. Their descriptions can be found in system manuals: man gcc and man make.
+
+For a manual and available command options check
+
+man apt-build
+
+But the most useful are:
+
+    apt-build update — updates repo list, (like apt-get update)
+    apt-build upgrade — updates operating system, (like apt-get upgrade)
+    apt-build install program — installs an application,(like apt-get install)
+    apt-build world — something for hard-core users, it recompiles whole system!
+
+For example:
+
+Lets say you want to compile/install Gedit. Instead of apt-get install you just do
+
+sudo apt-build install gedit
+
+Apt-build makes use of deb-src entries contained in the /etc/apt/sources.list file so the compilation and installation processes are fully automatic (similar to emerge found in Gentoo). Apt-build downloads sources of the main application and its dependencies, compiles them, creates a deb package, and finally installs the package.
+
+Some notes about apt-build world.
+
+In my opinion don't attempt it, unless you have 24 or more hours available !
+
+If so first thing you should, remove/disable/uninstall any third party applications (it better to do in a fresh install of Ubuntu) and then do :
+
+sudo su
+dpkg --get-selections | awk '{if ($2 == "install") print $1}'> /etc/apt/apt-build.list
+exit
+
+The above command will copy your full list of system packages to apt-build.list so that they can be compiled from source. Open that file
+
+sudo gedit /etc/apt/apt-build.list
+
+and remove any GCC/G++ entry
+
+Then you can do :
+
+sudo apt-build world
+
+Contribute updated pacstrips for the following apps:
+
+dropbox
+lazygit
+bitwarden
+thorium 
+
+
+and make pacscripts for all hyprland pkgs
+

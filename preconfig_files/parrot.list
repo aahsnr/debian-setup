@@ -1,0 +1,14 @@
+## This file provides the default APT repositories for Parrot Security
+## These repositories are used to fetch new software and system updates
+
+deb https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware
+deb https://deb.parrot.sh/direct/parrot lory-security main contrib non-free non-free-firmware
+deb https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware
+deb https://deb.parrot.sh/parrot lory-updates main contrib non-free non-free-firmware
+
+
+deb-src https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware
+deb-src https://deb.parrot.sh/parrot lory-security main contrib non-free non-free-firmware
+deb-src https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware
+deb-src https://deb.parrot.sh/parrot lory-updates main contrib non-free non-free-firmware
+

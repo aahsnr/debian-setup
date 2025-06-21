@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Installing hyprwayland-scanner"
+sleep 2
+sudo apt install -y libpugixml-dev
+cd && git clone https://github.com/hyprwm/hyprwayland-scanner
+cd hyprwayland-scanner && git checkout v0.4.2
+sleep 2
+cmake -B build
+cmake --build build -j5
+sudo cmake --install build
+cd build/
+sudo install -Dm755 hyprwayland-scanner "/usr/local/bin/hyprwayland-scanner"
+cd && sudo rm -rf hyprwayland-scanner

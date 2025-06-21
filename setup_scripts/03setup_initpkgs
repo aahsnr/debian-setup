@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Initial Setup"
+cd
+sudo apt install -y zstd curl linux-image-$(uname -r) linux-headers-$(uname -r) gcc make acpid dkms libglvnd-core-dev libglvnd0 libc-dev apt-listchanges needrestart apt-show-versions apt-listbugs debsums firmware-linux btrfs-progs vim console-setup pkg-config plymouth efibootmgr wget curl apt-transport-https texinfo libpam-dev 
+
+sudo update-grub2
+
+#sudo reboot

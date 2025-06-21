@@ -1,0 +1,40 @@
+#!/bin/sh
+cd && git clone https://gitlab.com/apparmor/apparmor.git && cd apparmor && git checkout v4.1.0-beta &&
+  sudo apt build-dep apparmor &&
+  sudo apt install swig autoconf-archive flake8 python3-notify2 python3-psutil python3-tk python3-ttkthemes python3-gi
+
+# export variables
+export pythonpath=$(realpath libraries/libapparmor/swig/python) &&
+  export python=/usr/bin/python3 &&
+  export python_version=3 &&
+  export python_versions=python3
+
+# libapparmor
+cd libraries/libapparmor &&
+  sh ./autogen.sh &&
+  sh ./configure --prefix=/usr --with-perl --with-python && # see below
+  make -j12 &&
+  make check -j12 &&
+  sudo make install &&
+  cd
+
+# binutils
+cd apparmor/binutils &&
+  make -j12 &&
+  make check -j12 &&
+  sudo make install &&
+  cd
+
+# parser
+cd apparmor/parser &&
+  make -j12 &&
+  make check -j12 &&
+  sudo make install &&
+  cd
+
+# utils
+cd apparmor/utils &&
+  make &&
+  #make check &&
+  sudo make install &&
+  cd

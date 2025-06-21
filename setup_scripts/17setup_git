@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Settig up git"
+sleep 3
+sudo apt install -y gnome-keyring libsecret-1-0 libsecret-1-dev git-delta git-lfs libgpg-error0 libgcrypt-bin libgcrypt20 libksba8 libassuan9 libnpth0t64 gnupg2
+sudo make --directory=/usr/share/doc/git/contrib/credential/libsecret
+git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+cd && ln -sv $HOME/.dots/.config/git $HOME/.config/

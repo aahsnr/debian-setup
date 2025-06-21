@@ -1,0 +1,35 @@
+#!/bin/bash
+echo "Setting up Dotfiles"
+#sudo rm -R ~/.config/
+# cd && mkdir $HOME/.config
+ln -sv $HOME/.dots/org $HOME/
+ln -sv $HOME/.dots/.config/ags $HOME/.config/
+# ln -sv $HOME/.dots/.config/atuin $HOME/.config/
+# ln -sv $HOME/.dots/.config/bat $HOME/.config/
+ln -sv $HOME/.dots/.config/btop $HOME/.config/
+ln -sv $HOME/.dots/.config/doom $HOME/.config/
+# ln -sv $HOME/.dots/.config/eza $HOME/.config/
+ln -sv $HOME/.dots/.config/foot $HOME/.config/
+ln -sv $HOME/.dots/.config/gtk-3.0 $HOME/.config/
+ln -sv $HOME/.dots/.config/gtk-4.0 $HOME/.config/
+ln -sv $HOME/.dots/.config/hypr $HOME/.config/
+ln -sv $HOME/.dots/.config/Kvantum $HOME/.config/
+# ln -sv $HOME/.dots/.config/lazygit $HOME/.config/
+ln -sv $HOME/.dots/.config/mpv $HOME/.config/
+ln -sv $HOME/.dots/.config/nvim $HOME/.config/
+ln -sv $HOME/.dots/.config/nwg-look $HOME/.config/
+ln -sv $HOME/.dots/.config/qalculate $HOME/.config/
+ln -sv $HOME/.dots/.config/qt5ct $HOME/.config/
+ln -sv $HOME/.dots/.config/qt6ct $HOME/.config/
+ln -sv $HOME/.dots/.config/rofi $HOME/.config/
+ln -sv $HOME/.dots/.config/tealdeer $HOME/.config/
+ln -sv $HOME/.dots/.config/Thunar $HOME/.config/
+ln -sv $HOME/.dots/.config/yazi $HOME/.config/
+ln -sv $HOME/.dots/.config/zathura $HOME/.config/
+ln -sv $HOME/.dots/.gtkrc-2.0 $HOME/
+
+xdg-user-dirs-update
+mkdir ~/.config/zellij
+zellij setup --dump-config >~/.config/zellij/config.kdl
+
+echo " Finished setting up dotfiles "

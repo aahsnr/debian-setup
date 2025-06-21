@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Installing zsync2"
+sudo apt install -y git cmake g++ libssl-dev libssh2-1-dev libcurl4-gnutls-dev zlib1g-dev libgcrypt20-dev
+cd && git clone https://github.com/AppImageCommunity/zsync2.git 
+cd zsync2 && git checkout 2.0.0-alpha-1-20230304
+sleep 3
+git submodule update --init
+mkdir build
+cd build
+cmake .. -DUSE_SYSTEM_CURL=1 -DBUILD_CPR_TESTS=0
+make -j6
+sudo make install
+cd && sudo rm -R zsync2

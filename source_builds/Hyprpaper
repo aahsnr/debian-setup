@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Installing hyprpaper"
+sleep 2
+sudo apt install -y cmake meson ninja-build wayland-utils wayland-protocols libwayland-dev libwlroots-dev libmagic-dev libpango1.0-dev libjpeg-dev
+cd && git clone https://github.com/hyprwm/hyprpaper.git
+cd hyprpaper && git checkout v0.7.1
+sleep 2
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+cmake --build ./build --config Release --target hyprpaper -j$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)
+sudo cmake --install ./build
+cd && sudo rm -rf hyprpaper

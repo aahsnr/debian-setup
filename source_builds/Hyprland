@@ -1,0 +1,26 @@
+#!/bin/bash
+echo "Installing Hyprland"
+sleep 2
+sudo apt install -y meson ninja-build cmake-extras cmake gettext gettext-base libfontconfig-dev libffi-dev libxml2-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev libvkfft-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev fontconfig libliftoff-dev libdisplay-info-dev libpango1.0-dev libsystemd-dev libgbm-dev hwdata xwayland wayland-protocols libwayland-dev cpio libtomlplusplus-dev vulkan-utility-libraries-dev libdrm-dev libxcursor-dev libgbm-dev
+sudo apt install -y libxcb-composite0-dev libxcb-errors-dev libxcb-util-dev libxcb-icccm4-dev libxcb-res0-dev libsystemd-dev systemd-dev
+cd && git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland && git checkout v0.45.2
+export CXXFLAGS="-w" # suppress all compiler warnings
+meson setup build \
+  --wipe \
+  --prefix /usr \
+  --libexecdir lib \
+  --buildtype release \
+  --wrap-mode nodownload \
+  -D warning_level=0 \
+  -D b_lto=true \
+  -D b_pie=true \
+  -D default_library=shared \
+  -D xwayland=enabled \
+  -D systemd=enabled
+
+meson compile -C build
+
+sudo meson install -C build
+
+cd && sudo rm -rf Hyprland

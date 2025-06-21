@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Installing hypridle"
+sleep 2
+sudo apt install -y libsdbus-c++-dev
+cd && git clone https://github.com/hyprwm/hypridle.git 
+cd hypridle && git checkout v0.1.5
+sleep 2
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -S . -B ./build
+cmake --build ./build --config Release --target hypridle -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+sudo cmake --install build
+cd && sudo rm -rf hypridle
+

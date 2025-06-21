@@ -1,0 +1,15 @@
+#!/bin/bash
+cd && sudo apt install -y snapper snapper-gui
+cd $HOME/.dots/debian-scripts/preconfig_files
+sudo install -Dm755 dpkg-pre-post-snapper "/usr/local/bin/dpkg-pre-post-snapper"
+cd && sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/80snapper /etc/apt/apt.conf.d/ && cd
+
+umount /.snapshots
+rm -rf /.snapshots
+snapper -c root create-config /
+nvim /etc/snapper/configs/root
+snapper -c home create-config /home
+nvim /etc/snapper/configs/home
+systemctl disable snapper-boot.timer
+btrfs su del /.snapshots
+mkdir /.snapshots

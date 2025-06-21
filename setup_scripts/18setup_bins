@@ -1,0 +1,21 @@
+#!/bin/bash
+## Custom Scripts
+sudo ln -sv $HOME/.dots/debian-scripts/bin/cliphist-rofi /usr/local/bin/cliphist-rofi
+sudo ln -sv $HOME/.dots/debian-scripts/bin/hyprlauncher /usr/local/bin/hyprlauncher
+sudo ln -sv $HOME/.dots/debian-scripts/bin/hyprrunner /usr/local/bin/hyprrunner
+sudo ln -sv $HOME/.dots/debian-scripts/bin/hyprterm /usr/local/bin/hyprterm
+sudo ln -sv $HOME/.dots/debian-scripts/bin/hyprtheme /usr/local/bin/hyprtheme
+sudo ln -sv $HOME/.dots/debian-scripts/bin/portal-fix /usr/local/bin/portal-fix
+sudo ln -sv $HOME/.dots/debian-scripts/bin/reload_ags /usr/local/bin/reload_ags
+sudo ln -sv $HOME/.dots/debian-scripts/bin/rofi-bluetooth /usr/local/bin/rofi-bluetooth
+sudo ln -sv $HOME/.dots/debian-scripts/bin/spotify-launcher /usr/local/bin/spotify-launcher
+
+## Go Packages
+#sudo ln -sv $HOME/go/bin/lazygit /usr/local/bin/lazygit
+
+## Cargo Packages
+sudo ln -sv $HOME/.cargo/bin/* /usr/local/bin/
+
+## Bun packages -- see if removing these packages fixes ags install problems
+sudo ln -sv $HOME/.bun/bin/* /usr/local/bin/
+

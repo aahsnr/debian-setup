@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo flatpak override com.bitwarden.desktop --filesystem=$HOME/.local/share/themes
+sudo flatpak override --env=GTK_THEME=catppuccin-macchiato-flamingo-standard+default 

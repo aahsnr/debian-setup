@@ -1,0 +1,21 @@
+#!/bin/bash
+cd && git clone https://github.com/TheAssassin/AppImageLauncher.git
+cd AppImageLauncher
+git submodule update --init --recursive
+sudo apt install make cmake libglib2.0-dev libcairo2-dev librsvg2-dev libfuse-dev libarchive-dev libxpm-dev libcurl4-openssl-dev libboost-all-dev qtbase5-dev qtdeclarative5-dev qttools5-dev-tools patchelf libc6-dev libc6-dev gcc-multilib g++-multilib
+
+export PREFIX="/usr/local/"
+mkdir build
+cd build
+
+cmake .. -DCMAKE_INSTALL_PREFIX="$PREFIX" -DUSE_SYSTEM_BOOST=true
+
+# See https://github.com/TheAssassin/AppImageLauncher/issues/251 for more details why this is required
+make libappimage libappimageupdate libappimageupdate-qt
+cmake .
+
+make
+
+sudo make install
+
+cd && sudo rm -R AppImageLauncher

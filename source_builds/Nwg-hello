@@ -1,0 +1,25 @@
+#!/bin/bash
+echo "Installing Nwg-hello"
+sleep 2
+sudo apt install -y libgtk-layer-shell-dev gnome-themes-extra python3-build python3-installer python3-wheel python3-setuptools
+cd && git clone https://github.com/nwg-piotr/nwg-hello.git
+cd nwg-hello 
+
+sudo install -D -m 644 -t /etc/nwg-hello/ nwg-hello-default.json
+sudo install -D -m 644 -t /etc/nwg-hello/ nwg-hello-default.css
+sudo install -D -m 644 -t /etc/nwg-hello/ hyprland.conf
+sudo install -D -m 644 -t /etc/nwg-hello/ sway-config
+sudo install -D -m 644 -t /etc/nwg-hello/ README
+sudo install -D -m 644 -t /usr/share/nwg-hello/ nwg.jpg
+sudo install -D -m 644 -t /usr/share/nwg-hello/ img/*
+
+sudo install -d /var/cache/nwg-hello
+sudo install -Dm644 -t /var/cache/nwg-hello cache.json -o greeter
+
+sudo install -Dm 644 -t "/usr/share/licenses/nwg-hello" LICENSE
+sudo install -Dm 644 -t "/usr/share/doc/nwg-hello" README.md
+python3 -m build --wheel --no-isolation
+[ -f /usr/local/bin/nwg-hello ] && sudo rm /usr/local/bin/nwg-hello
+sudo python3 -m installer dist/*.whl
+
+cd && sudo rm -rf nwg-hello

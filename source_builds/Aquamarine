@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Installing aquamarine"
+sleep 2
+sudo apt install -y libseat-dev libinput-dev libdisplay-info-dev
+cd && git clone https://github.com/hyprwm/aquamarine.git 
+cd aquamarine 
+#git checkout v0.5.0
+#sleep 2
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+cmake --build ./build --config Release --target all -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+sudo cmake --install ./build
+cd && sudo rm -rf aquamarine 

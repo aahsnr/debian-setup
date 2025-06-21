@@ -1,0 +1,2 @@
+#!/bin/bash
+pacstall -A github:aahsnr/pacstall-programs @aahsnr

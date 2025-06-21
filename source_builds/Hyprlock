@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Installing hyprlock"
+sleep 2
+sudo apt install -y libdrm-dev libgbm-dev libegl-dev libpam-dev libgles2-mesa-dev libsdbus-c++-dev
+cd && git clone https://github.com/hyprwm/hyprlock.git
+cd hyprlock && git checkout v0.5.0 
+sleep 2
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -S . -B ./build
+cmake --build ./build --config Release --target hyprlock -j$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)
+sudo cmake --install build
+cd && sudo rm -rf hyprlock

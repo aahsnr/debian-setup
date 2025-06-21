@@ -1,0 +1,76 @@
+#!/bin/bash
+
+echo "Installing Main Pkgs"
+sleep 2 
+sudo apt install -y build-essential gcc cmake cmake-extras gnome-font-viewer clang ubuntu-dev-tools devscripts make meson wget curl pkg-config thunar thunar-volman thunar-media-tags-plugin thunar-archive-plugin tumbler git gvfs xdg-user-dirs xdg-user-dirs-gtk file-roller ncurses-term maim golang-go zoxide fzf mate-polkit x11-xkb-utils x11-xserver-utils xserver-xorg-core xournalpp zathura zathura-pdf-poppler pymol libpam-tmpdir python3-pip pipx rng-tools-debian haveged lynis auditd sysstat fail2ban acct apparmor apparmor-notify apparmor-profiles apparmor-profiles-extra apparmor-utils wayland-protocols network-manager network-manager-gnome qt5-style-kvantum qt6ct qt5ct pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber pulseaudio-utils pavucontrol alsa-utils libpulse-dev pamixer xdg-desktop-portal python3-debugpy nwg-look grim slurp swappy cliphist wl-clipboard greetd gettext gettext-base vulkan-utility-libraries-dev hwdata xwayland cpio maim amd64-microcode fwupd bluez bluez-alsa-utils bluez-firmware bluez-tools blueman binutils cron debianutils logrotate psmisc power-profiles-daemon upower xz-utils zip 7zip unzip btop qalculate-gtk wayland-utils bash-completion ripgrep fd-find man-db gawk inotify-tools libbtrfsutil1t64 libinotifytools0 libsigsegv2 python3-btrfsutil bleachbit tmux tealdeer luarocks tree-sitter-cli foot ninja-build scdoc swayimg libprotobuf-dev gnuplot clang-format grip protobuf-compiler gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly mpv gnome-software gnome-software-plugin-deb gnome-software-plugin-flatpak gnome-software-plugin-fwupd openssh-client openssh-server brightnessctl firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree firmware-iwlwifi firmware-amd-graphics firmware-mediatek firmware-realtek hunspell hunspell-en-us 
+
+# fontconfig fontconfig-config 
+
+# echo "Installing rustup"
+# sleep 2
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# sudo ln -sv $HOME/.cargo/bin/* /usr/local/bin/
+# rustup default stable
+
+echo "Installing bun"
+cd &&
+  curl -fsSL https://bun.sh/install | bash &&
+  sudo ln -sv $HOME/.bun/bin/bun /usr/local/bin/bun
+
+echo "Installing bun packages"
+bun install -g sass 
+bun install -g typescript
+bun install -g markdownlint
+bun install -g textlint
+
+# echo "Installing cargo packages"
+# sleep 2
+# cd
+# cargo install bottom 
+# cargo install matugen
+# cargo install --git https://github.com/donovanglover/hyprnome 
+# cargo install --locked yazi-fm yazi-cli
+# cargo install --locked zellij
+# cargo install atuin  
+  
+# echo "Installing go packages"
+# cd && go install github.com/jesseduffield/lazygit@latest
+  
+# echo "Installing pipx packages"
+# sleep 3
+# pipx install pyprland proselint
+
+# echo "Installing spotify"
+# sleep 3
+# curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg &&
+#   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list &&
+#   sudo apt update -y && sudo apt install -y spotify-client
+#
+# echo "Installing Vscodium"
+# wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+#     | gpg --dearmor \
+#     | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+#
+# echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
+#     | sudo tee /etc/apt/sources.list.d/vscodium.list
+# sudo apt update && sudo apt install codium
+#
+# echo "Installing vivaldi browser"
+# sleep 2
+# cd && wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor > packages.vivaldi.gpg
+# sudo install -o root -g root -m 644 packages.vivaldi.gpg /etc/apt/trusted.gpg.d
+# sudo sh -c 'echo "deb [arch=amd64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.vivaldi.gpg] https://repo.vivaldi.com/archive/deb stable main" > /etc/apt/sources.list.d/vivaldi.list' 
+# rm -f packages.vivaldi.gpg
+# sudo apt update -y && sudo apt install vivaldi-stable -y
+#
+# echo "Installing element-desktop"
+# sleep 2
+# sudo apt install -y wget apt-transport-https
+# sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
+# echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
+# sudo apt update -y
+# sudo apt install -y element-desktop
+#
+# sudo systemctl disable greetd
+#
+# echo "End of Hyprland Setup"

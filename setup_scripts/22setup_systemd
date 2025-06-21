@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Set Up Systemd
+sudo systemctl set-default graphical.target
+sudo systemctl start asusd
+sudo systemctl enable grub-btrfsd supergfxd
+systemctl --user enable wireplumber.service pipewire-pulse.socket pipewire.socket pipewire-pulse.service pipewire.service pipewire-pulse.socket pipewire.socket pipewire-pulse.service pipewire.service hypridle.service
+sudo systemctl disable greetd
+ 

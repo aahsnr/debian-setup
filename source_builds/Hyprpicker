@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Installing hyprpicker"
+sleep 2
+cd && git clone https://github.com/hyprwm/hyprpicker.git 
+cd hyprpicker && git checkout v0.4.1
+sleep 2
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+cmake --build ./build --config Release --target hyprpicker -j$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)
+sudo cmake --install ./build
+cd && sudo rm -rf hyprpicker

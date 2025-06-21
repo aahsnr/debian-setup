@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Installing Insync"
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
+sudo cp -R $HOME/.dots/debian-scripts/insync.list /etc/apt/sources.list.d/
+sudo apt update
+sudo apt install insync

@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Installing ReGreet"
+sleep 3
+sudo apt install -y librust-glib-sys-dev librust-gio-sys-dev librust-gdk-pixbuf-sys-dev librust-cairo-sys-rs-dev librust-graphene-sys-dev librust-gdk4-sys-dev librust-pango-sys-dev --no-install-recommends
+cd && git clone https://github.com/rharish101/ReGreet.git  
+cd ReGreet && git checkout 0.1.1
+sleep 3
+cargo build --all-features --release
+cd target/release
+sudo install -Dm755 regreet "/usr/local/bin/regreet"
+cd && sudo rm -rf ReGreet

@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Installing Hyprutils"
+sleep 2
+sudo apt install -y libpixman-1-dev
+cd && git clone https://github.com/hyprwm/hyprutils.git
+cd hyprutils && git checkout v0.2.6
+sleep 2 
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+cmake --build ./build --config Release --target all -j$(nproc 2>/dev/null || getconf _NPROCESSORS_CONF)
+sudo cmake --install build
+cd && sudo rm -rf hyprutils

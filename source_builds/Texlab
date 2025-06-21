@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Installing Texlab"
+sleep 3
+cd && git clone https://github.com/latex-lsp/texlab.git
+cd texlab
+cargo build --release
+cd target/release
+sudo install -Dm755 texlab "/usr/local/bin/texlab"
+cd && sudo rm -R texlab

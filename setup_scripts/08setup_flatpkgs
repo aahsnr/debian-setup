@@ -1,0 +1,13 @@
+#!/bin/bash
+sudo apt install -y flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+flatpak install flathub io.github.zen_browser.zen -y
+flatpak install flathub com.bitwarden.desktop -y
+flatpak install flathub com.github.tchx84.Flatseal -y
+flatpak install flathub com.notesnook.Notesnook -y
+flatpak install flathub io.github.dvlv.boxbuddyrs -y
+flatpak install flathub org.zotero.Zotero -y
+flatpak install flathub org.onlyoffice.desktopeditors -y
+flatpak install flathub md.obsidian.Obsidian -y
+flatpak install flathub com.logseq.Logseq -y

@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Installing Rofi wayland"
+sleep 2
+sudo apt install -y libgtk-layer-shell-dev libxcb-icccm4-dev libmpdclient-dev libnl-3-dev libalsa-ocaml-dev libxcb-util-dev libxcb-xkb-dev libxkbcommon-x11-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-keysyms1-dev libstartup-notification0-dev flex bison check pandoc cppcheck doxygen ohcount automake autoconf autotools-dev go-md2man
+cd && git clone --recursive https://github.com/lbonn/rofi.git
+cd rofi && git checkout 1.7.5+wayland3
+sleep 2
+meson setup build
+ninja -C build
+sudo ninja -C build install
+cd && sudo rm -rf rofi
+#libxcb-imdkit-dev 

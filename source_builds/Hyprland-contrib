@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Installing Hyprland-contrib"
+cd && git clone https://github.com/hyprwm/contrib.git
+cd contrib/grimblast && make && sudo make install && cd
+cd contrib/hdrop && make && sudo make install && cd
+cd && sudo rm -rf contrib

@@ -1,0 +1,37 @@
+#!/bin/bash
+echo "Installing Astal"
+sleep 3
+sudo apt install -y meson valac libgtk-3-dev libgtk-layer-shell-dev gobject-introspection libgirepository1.0-dev
+cd && git clone https://github.com/aylur/astal.git /tmp/astal
+
+echo "astal-io"
+sleep 3
+cd /tmp/astal/lib/astal/io
+meson setup --prefix /usr build
+meson install -C build
+
+echo "astal3"
+sleep 3
+cd /tmp/astal/lib/astal/gtk3
+meson setup --prefix /usr build
+meson install -C build
+
+
+echo "Installing Astal js"
+sleep 3
+cd && git clone https://github.com/aylur/astal
+cd astal/lang/gjs
+meson setup --prefix /usr build
+meson install -C build
+
+echo "Installing Ags"
+sleep 3
+cd && git clone https://github.com/aylur/ags.git
+cd ags
+
+go install -ldflags "\
+    -X 'main.gtk4LayerShell=$(pkg-config --variable=libdir gtk4-layer-shell-0)/libgtk4-layer-shell.so' \
+    -X 'main.astalGjs=$(pkg-config --variable=srcdir astal-gjs)'"
+cd && cd $HOME/go/bin/ 
+sudo install -Dm755 ags "/usr/local/bin/ags"
+

@@ -1,0 +1,11 @@
+Package: *
+Pin: release a=sid
+Pin-Priority: 10000
+ 
+Package: *
+Pin: release a=trixie
+Pin-Priority: 900
+
+Package: *
+Pin: release a=kali-rolling
+Pin-Priority: 100

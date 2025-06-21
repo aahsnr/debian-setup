@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Installing Neovim"
+sleep 3
+sudo apt install -y python3-pynvim ripgrep tree-sitter-cli fd-find ninja-build gettext cmake unzip curl build-essential python3-debugpy
+cd && git clone https://github.com/neovim/neovim
+cd neovim && git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo -j22
+sudo make install 
+cd && sudo rm -rf neovim
+

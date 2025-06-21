@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo apt install -y texlive texlive-base texlive-bibtex-extra texlive-binaries texlive-fonts-recommended texlive-latex-recommended texlive-xetex texlive-publishers texlive-science latexmk

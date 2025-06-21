@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "Installing hyprshot"
+cd && git clone https://github.com/Gustash/hyprshot.git ~/Hyprshot && cd Hyprshot
+sudo install -Dm755 hyprshot /usr/local/bin/hyprshot
+cd && sudo rm -rf Hyprshot
+
