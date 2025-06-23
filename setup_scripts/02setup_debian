@@ -1,12 +1,10 @@
 #!/bin/bash
 # sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/stable.sources /etc/apt/sources.list.d/
-sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/testing.sources /etc/apt/sources.list.d/
-sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/unstable.sources /etc/apt/sources.list.d/
+sudo cp -R $HOME/debian-setup/preconfig_files/testing.sources /etc/apt/sources.list.d/
+sudo cp -R $HOME/debian-setup/preconfig_files/unstable.sources /etc/apt/sources.list.d/
 # sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/kali.pref /etc/apt/preferences.d
-sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/01norecommend /etc/apt/apt.conf.d
-sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/preferences /etc/apt/
+sudo cp -R $HOME/debian-setup/preconfig_files/01norecommend /etc/apt/apt.conf.d/
+sudo cp -R $HOME/debian-setup/preconfig_files/preferences /etc/apt/
 sudo rm -R /etc/apt/sources.list
 # sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/grub /etc/default/
 # sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/dracut.conf /etc/
-sudo apt update -y && sudo apt upgrade -y
-
