@@ -8,3 +8,4 @@ sudo cp -R $HOME/debian-setup/preconfig_files/preferences /etc/apt/
 sudo rm -R /etc/apt/sources.list
 # sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/grub /etc/default/
 # sudo cp -R $HOME/.dots/debian-scripts/preconfig_files/dracut.conf /etc/
+sudo apt -y update && sudo apt -y upgrade
