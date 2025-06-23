@@ -32,45 +32,8 @@ bun install -g textlint
 # cargo install --locked yazi-fm yazi-cli
 # cargo install --locked zellij
 # cargo install atuin  
-  
-# echo "Installing go packages"
-# cd && go install github.com/jesseduffield/lazygit@latest
-  
-# echo "Installing pipx packages"
-# sleep 3
-# pipx install pyprland proselint
 
-# echo "Installing spotify"
-# sleep 3
-# curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg &&
-#   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list &&
-#   sudo apt update -y && sudo apt install -y spotify-client
-#
-# echo "Installing Vscodium"
-# wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
-#     | gpg --dearmor \
-#     | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
-#
-# echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
-#     | sudo tee /etc/apt/sources.list.d/vscodium.list
-# sudo apt update && sudo apt install codium
-#
-# echo "Installing vivaldi browser"
-# sleep 2
-# cd && wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor > packages.vivaldi.gpg
-# sudo install -o root -g root -m 644 packages.vivaldi.gpg /etc/apt/trusted.gpg.d
-# sudo sh -c 'echo "deb [arch=amd64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.vivaldi.gpg] https://repo.vivaldi.com/archive/deb stable main" > /etc/apt/sources.list.d/vivaldi.list' 
-# rm -f packages.vivaldi.gpg
-# sudo apt update -y && sudo apt install vivaldi-stable -y
-#
-# echo "Installing element-desktop"
-# sleep 2
-# sudo apt install -y wget apt-transport-https
-# sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
-# echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
-# sudo apt update -y
-# sudo apt install -y element-desktop
-#
+# pipx install pyprland proselint
 # sudo systemctl disable greetd
 #
 # echo "End of Hyprland Setup"

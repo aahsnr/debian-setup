@@ -2,19 +2,6 @@
 ## debian method
 sudo apt install -y nvidia-driver-full nvidia-open-kernel-dkms nvidia-vaapi-driver xserver-xorg-video-amdgpu mesa-utils vulkan-validationlayers vulkan-tools nvidia-vulkan-common mesa-vulkan-drivers firmware-nvidia-graphics --install-recommends
 
-## manual method
-# cd wget https://us.download.nvidia.com/XFree86/Linux-x86_64/565.77/NVIDIA-Linux-x86_64-565.77.run
-# sudo chmod +x NVIDIA-Linux-x86_64-565.77.run
-# sudo ./NVIDIA-Linux-x86_64-565.77.run
-# sudo apt install -y nvidia-vaapi-driver xserver-xorg-video-amdgpu mesa-utils vulkan-validationlayers vulkan-tools nvidia-vulkan-common mesa-vulkan-drivers firmware-nvidia-graphics --install-recommends
-
-## cuda method
-# cd && wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb
-# sudo dpkg -i cuda-keyring_1.1-1_all.deb
-# sudo apt update -y
-# sudo apt install nvidia-open nvidia-vaapi-driver xserver-xorg-video-amdgpu mesa-utils vulkan-validationlayers vulkan-tools nvidia-vulkan-common mesa-vulkan-drivers firmware-nvidia-graphics --install-recommends
-#
-# cd && sudo rm -R cuda-keyring_1.1-1_all.deb
-# sudo systemctl disable nvidia-persistenced nvidia-powerd
+sudo systemctl disable nvidia-persistenced nvidia-powerd
 
 # sudo reboot
